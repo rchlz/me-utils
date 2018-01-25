@@ -8,10 +8,14 @@ import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 
-
+/**
+ * 校验工具类，主要用于校验手机号、邮箱地址、汉字、字母等的合法性判断
+ * @author guoweiwei gww0426@163.com
+ *
+ */
 public class ValidateUtil {
 
-    private static final String mobilePattern = "^1(3|4|5|8)[0-9]{9}$";
+    private static final String mobilePattern = "^1(3|4|5|7|8)[0-9]{9}$";
 
     private static final String emailPattern = "[\\w\\.\\-]+@([\\w\\-]+\\.)+[a-zA-Z]+";
 
