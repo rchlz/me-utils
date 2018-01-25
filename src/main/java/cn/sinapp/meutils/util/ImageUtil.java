@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import cn.sinapp.meutils.util.encryption.Base64Util;
+
 public class ImageUtil {
 	
 	public static void main(String[] args)  

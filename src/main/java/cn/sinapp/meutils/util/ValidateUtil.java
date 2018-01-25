@@ -9,7 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 
 
-public class DataUtil {
+public class ValidateUtil {
 
     private static final String mobilePattern = "^1(3|4|5|8)[0-9]{9}$";
 

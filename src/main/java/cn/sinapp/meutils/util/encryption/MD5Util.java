@@ -7,7 +7,7 @@
  *
 */
 
-package cn.sinapp.meutils.util;
+package cn.sinapp.meutils.util.encryption;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

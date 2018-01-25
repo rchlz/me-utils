@@ -45,6 +45,10 @@ public class HttpUtil {
 	private static final String DEFAULT_CHARSET = "UTF-8";
 	
 	public static String get(String url){
+		return get(url, DEFAULT_CHARSET);
+	}
+	
+	public static String get(String url, String charset){
 		String result = null;
 		CloseableHttpClient client = HttpClients.createDefault();
 		HttpGet httpGet = new HttpGet(url);
@@ -53,7 +57,7 @@ public class HttpUtil {
 		try {
 			HttpResponse response = client.execute(httpGet);
 			HttpEntity entity = response.getEntity();
-			result = EntityUtils.toString(entity, DEFAULT_CHARSET);
+			result = EntityUtils.toString(entity, charset);
 		} catch (ClientProtocolException e) {
 			logger.error("postResult错误", e);
 		} catch (IOException e) {
@@ -65,18 +69,22 @@ public class HttpUtil {
 	}
 	
 	public static String post(String url,List<NameValuePair> nvps){
+		return post(url,nvps,DEFAULT_CHARSET);
+	}
+	
+	public static String post(String url,List<NameValuePair> nvps, String charset){
 		String result = null;
 		CloseableHttpClient client = HttpClients.createDefault();
 		try {
 			HttpPost httpPost = new HttpPost(url);
 			if(nvps != null && nvps.size()>0){
-				httpPost.setEntity(new UrlEncodedFormEntity(nvps, DEFAULT_CHARSET));
+				httpPost.setEntity(new UrlEncodedFormEntity(nvps, charset));
 			}
 			RequestConfig requestConfig = RequestConfig.custom().setSocketTimeout(5000).setConnectTimeout(5000).build();//设置请求和传输超时时间
 			httpPost.setConfig(requestConfig);
 			HttpResponse response = client.execute(httpPost);
 			HttpEntity entity = response.getEntity();
-			result = EntityUtils.toString(entity, DEFAULT_CHARSET);
+			result = EntityUtils.toString(entity, charset);
 		} catch (ClientProtocolException e) {
 			logger.error("postResult错误", e);
 		} catch (IOException e) {
@@ -87,6 +95,10 @@ public class HttpUtil {
 	}
 	
 	public static String post(String url,Map<String, String> params){
+		return post(url, params, DEFAULT_CHARSET);
+	}
+	
+	public static String post(String url,Map<String, String> params, String charset){
 		
 		if(params == null || params.size() <= 0){
 			return "empty param";
@@ -100,7 +112,7 @@ public class HttpUtil {
 			nvps.add(new BasicNameValuePair(key, value));
 		}
 		
-		return post(url, nvps);
+		return post(url, nvps, charset);
 	}
 
 }

@@ -9,8 +9,10 @@ package cn.sinapp.meutils.util;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -201,7 +203,7 @@ public class HtmlUtil {
     }
 
     public static String replaceParameterValue(final String querystring, String parameter,
-                                               String value) {
+                                               String value) throws UnsupportedEncodingException {
         // 如果参数名为null或"" 则直接返回
         if (parameter == null || "".equals(parameter.trim())) {
             return "";
@@ -212,7 +214,7 @@ public class HtmlUtil {
         boolean isDel = (value == null || "".equals(value));
         // 如果输入querystring 为空字符串,且value有值,则直接返回
         if ("".equals(result.trim())) {
-            return (!isDel) ? parameter + "=" + EncoderUtil.URLEncode(value) : "";
+            return (!isDel) ? parameter + "=" + URLEncoder.encode(value, "UTF-8") : "";
         }
 
         // 计算方便,先前后追加&
@@ -242,7 +244,7 @@ public class HtmlUtil {
                 result = result.substring(0, iStartPos) + result.substring(iEndPos + 1);
             }
         } else {
-            String replaceValue = parameter + "=" + EncoderUtil.URLEncode(value);
+            String replaceValue = parameter + "=" + URLEncoder.encode(value, "UTF-8");
             // 如果原先没有该值则添加,否则覆盖
             if (iStartPos == -1) {
                 result += replaceValue;
@@ -268,9 +270,10 @@ public class HtmlUtil {
      * @param parameter 没有此参数则给加上
      * @param value 为空(null or "")时从querystring 中删除此参数
      * @return
+     * @throws UnsupportedEncodingException 
      */
     public static String replaceParameterValue(final String querystring, List<String> parameters,
-                                               List<String> values) {
+                                               List<String> values) throws UnsupportedEncodingException {
         String result = querystring;
         if (parameters != null) {
             for (int i = 0; i < parameters.size(); i++) {
@@ -289,9 +292,10 @@ public class HtmlUtil {
      * @param parameter 没有此参数则给加上
      * @param value 为空(null or "")时从querystring 中删除此参数
      * @return
+     * @throws UnsupportedEncodingException 
      */
     public static String replaceParameterValueEx(final String querystring, List<String> parameters,
-                                                 List<String> values) {
+                                                 List<String> values) throws UnsupportedEncodingException {
         String result = replaceParameterValue(querystring, parameters, values);
         if (result != null && result.trim().length() > 0)
             result = "?" + result;

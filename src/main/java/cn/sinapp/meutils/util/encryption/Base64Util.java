@@ -1,4 +1,4 @@
-package cn.sinapp.meutils.util;
+package cn.sinapp.meutils.util.encryption;
 
 import java.io.ByteArrayOutputStream;
 /**
