@@ -1,19 +1,10 @@
-/**
- * Project Name:snsxiu-moss
- * File Name:MD5Util.java
- * Package Name:com.snsxiu.moss.util
- * Date:2017年3月3日下午5:20:31
- * Copyright (c) 2017, gww0426@163.com All Rights Reserved.
- *
-*/
-
 package cn.sinapp.meutils.util.encryption;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * @ClassName: MD5Util
+ * MD5工具类
  * @author Brook Xu
  * @version 1.0
  */

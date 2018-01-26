@@ -16,7 +16,7 @@ public class ArrayUtil {
 	/**
 	 * 将一个字符串转换为int数组,比如对"1,2,4,5,7" 转换为[1,2,4,5,7]
 	 * @param str 需要转化的字符串，主要不包含[]
-	 * @return
+	 * @return 返回[1,2,4,5,7]形式的字符串
 	 */
 	public static int[] fromString(String str){
 		
@@ -53,8 +53,8 @@ public class ArrayUtil {
 	
 	/**
 	 * 将一个int类型的数组转换为字符串，转换后的字符串不包含[]
-	 * @param intArray
-	 * @return
+	 * @param intArray 整形数组
+	 * @return 返回不包含[]的数组字符串
 	 */
 	public static String toString(int[] intArray){
 		
@@ -72,8 +72,8 @@ public class ArrayUtil {
 	
 	/**
 	 * 将一个String类型的数组转换为字符串，转换后的字符串不包含[]
-	 * @param intArray
-	 * @return
+	 * @param strArray 字符串数组
+	 * @return 返回不包含[]的数组字符串
 	 */
 	public static String toString(String[] strArray){
 		

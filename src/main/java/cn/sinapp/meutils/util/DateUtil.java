@@ -13,7 +13,6 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * 日期处理工具类
- * 
  * @author youfly.yanghf
  */
 public class DateUtil {
@@ -35,10 +34,8 @@ public class DateUtil {
 
     /**
      * 判断date至今是否超过3个月时间，是返回true，否则返回false
-     * zhangzhiwei.tw
-     * 
-     * @param date
-     * @return
+     * @param date 日期
+     * @return 超过3个月返回true，否则返回false
      */
     public static boolean isOver3Month(Date date) {
 
@@ -59,8 +56,9 @@ public class DateUtil {
      * 判断date至今是否超过指定的天数，是返回true，否则返回false
      * 
      * @author guoweiwei
-     * @param date
-     * @return
+     * @param date 日期
+     * @param day 天数
+     * @return 超过指定天数返回true，否则返回false
      */
     public static boolean isOver(Date date, int day) {
 
@@ -107,9 +105,9 @@ public class DateUtil {
     /**
      * 将日期类解析成指定格式的日期字符串
      * 
-     * @param date
-     * @param format
-     * @return
+     * @param date 日期
+     * @param format 指定格式
+     * @return 格式化后的日期字符串
      */
     public static String format(Date date, String format) {
         if (date == null) return null;
@@ -121,7 +119,6 @@ public class DateUtil {
      * 将日期字符串解析成"yyyy-MM-dd HH:mm:ss"格式的Date对象
      * 
      * @param dateTime 日期字符串
-     * @param format 指定格式
      * @return （正确格式）日期对象
      */
     public static Date parseDateTime(String dateTime) {
@@ -131,9 +128,8 @@ public class DateUtil {
     /**
      * 将日期类解析成"yyyy-MM-dd HH:mm:ss"格式的日期字符串
      * 
-     * @param date
-     * @param format
-     * @return
+     * @param date 日期
+     * @return 格式化后的日期字符串
      */
     public static String formatDateTime(Date date) {
         return format(date, DATE_TIME_FORMAT);
@@ -154,9 +150,7 @@ public class DateUtil {
      * 将日期字符串解析成"yyyy-MM-dd"格式的Date对象
      * 
      * @param dateTime 日期字符串
-     * @param format 指定格式
      * @return （正确格式）日期对象
-     * @throws ParseException
      */
     public static Date parseDate(String dateTime) {
         return parse(dateTime, DATE_FORMAT);
@@ -165,9 +159,8 @@ public class DateUtil {
     /**
      * 将日期类解析成"yyyy-MM-dd"格式的日期字符串
      * 
-     * @param date
-     * @param format
-     * @return
+     * @param date 日期
+     * @return "yyyy-MM-dd"格式的日期字符串
      */
     public static String formatDate(Date date) {
         return format(date, DATE_FORMAT);
@@ -176,9 +169,8 @@ public class DateUtil {
     /**
      * 将日期类解析成"HH:mm"格式的日期字符串
      * 
-     * @param date
-     * @param format
-     * @return
+     * @param date 日期
+     * @return "HH:mm"格式的日期字符串
      */
     public static String formatHHmm(Date date) {
         return format(date, HHMM_FORMAT);
@@ -187,9 +179,8 @@ public class DateUtil {
     /**
      * 将日期类解析成"HH:mm:ss"格式的日期字符串
      * 
-     * @param date
-     * @param format
-     * @return
+     * @param date 日期
+     * @return "HH:mm:ss"格式的日期字符串
      */
     public static String formatHHmmss(Date date) {
         return format(date, HHMMSS_FORMAT);
@@ -198,8 +189,8 @@ public class DateUtil {
     /**
      * 格式化日期类型，返回中文显示的日期时间 返回String 格式如下： 2007年9月4日 16:32:35
      * 
-     * @param date
-     * @return
+     * @param date 日期
+     * @return 中文显示的日期时间，如2007年9月4日 16:32:35
      */
     public static String formatDateTimeChinaLocale(Date date) {
         if (date == null) return null;
@@ -211,8 +202,8 @@ public class DateUtil {
     /**
      * 格式化日期类型，返回中文显示的日期时间 返回String 格式如下： 2007年9月4日
      * 
-     * @param date
-     * @return
+     * @param date 日期
+     * @return 中文显示的日期时间 返回String 格式如下： 2007年9月4日
      */
     public static String formatDateChinaLocale(Date date) {
         if (date == null) return null;
@@ -223,10 +214,10 @@ public class DateUtil {
     /**
      * 日期格式合法性校验
      * 
-     * @param year
-     * @param month
-     * @param monthDay
-     * @return
+     * @param year 年
+     * @param month 月
+     * @param monthDay 日
+     * @return 合法日期返回true
      */
     private static boolean checkDay(int year, int month, int monthDay) {
         if (month < 0 || month > 11 || monthDay < 1 || monthDay > 31) {
@@ -243,10 +234,9 @@ public class DateUtil {
         return true;
     }
 
-    /* String转换成integer
-     * 
-     * @param str
-     * @return
+    /** String转换成integer
+     * @param str 字符串
+     * @return 转换后的整形
      */
     public static int str2Int(String str) {
         if (StringUtil.isEmpty(str.trim())) {
@@ -262,8 +252,8 @@ public class DateUtil {
      * 将“2010-01-02”格式的日期
      * zhangzhiwei.tw
      * 
-     * @param date
-     * @return
+     * @param date 日期
+     * @return long型日期
      */
     public static long getTime(String date) {
 
@@ -284,10 +274,10 @@ public class DateUtil {
     /**
      * 返回日期，格式为yyyy-MM-dd
      * 
-     * @param year
+     * @param year 年份
      * @param month 0-11
-     * @param monthDay 1-31
-     * @return
+     * @param day 1-31
+     * @return Date对象
      */
     public static Date toDate(int year, int month, int day) {
         checkDay(year, month, day);
@@ -307,8 +297,8 @@ public class DateUtil {
     /**
      * 返回四位年份,如果传入的参数为null，将抛出空指针异常。
      * 
-     * @param date
-     * @return
+     * @param date 日期
+     * @return 年份
      */
     public static int getYear(Date date) {
         Calendar cal = GregorianCalendar.getInstance();
@@ -319,8 +309,8 @@ public class DateUtil {
     /**
      * 返回月数(0-11) 如果传入的参数为null，将抛出空指针异常。
      * 
-     * @param date
-     * @return
+     * @param date 日期
+     * @return 月份
      */
     public static int getMonth(Date date) {
         Calendar cal = GregorianCalendar.getInstance();
@@ -331,8 +321,8 @@ public class DateUtil {
     /**
      * 返回月几(1-31) 如果传入的参数为null，将抛出空指针异常。
      * 
-     * @param date
-     * @return
+     * @param date 日期
+     * @return 月几(1-31)
      */
     public static int getDayOfMonth(Date date) {
         Calendar cal = GregorianCalendar.getInstance();
@@ -346,8 +336,8 @@ public class DateUtil {
      * Wednesday, <tt>6</tt> = Thursday, <tt>6</tt> = Friday, <tt>7</tt> =
      * Saturday) 如果传入的参数为null，将抛出空指针异常。
      * 
-     * @param date
-     * @return
+     * @param date 日期
+     * @return 周几(1-7)
      */
     public static int getDayOfWeek(Date date) {
         Calendar cal = GregorianCalendar.getInstance();
@@ -363,8 +353,8 @@ public class DateUtil {
      * Wednesday, <tt>4</tt> = Thursday, <tt>5</tt> = Friday, <tt>6</tt> =
      * Saturday) 如果传入的参数为null，将抛出空指针异常。
      * 
-     * @param date
-     * @return
+     * @param date 日期
+     * @return 周几(1-7)
      */
     private static int getDayOfWeekForChina(Date date) {
         Calendar cal = GregorianCalendar.getInstance();
@@ -381,8 +371,8 @@ public class DateUtil {
     /**
      * 返回小时(0-23) 如果传入的参数为null，将抛出空指针异常。
      * 
-     * @param date
-     * @return
+     * @param date 日期
+     * @return 小时(0-23)
      */
     public static int getHours(Date date) {
         Calendar cal = GregorianCalendar.getInstance();
@@ -393,8 +383,8 @@ public class DateUtil {
     /**
      * 返回分钟（0-59） 如果传入的参数为null，将抛出空指针异常。
      * 
-     * @param date
-     * @return
+     * @param date 日期
+     * @return 分钟（0-59）
      */
     public static int getMinutes(Date date) {
         Calendar cal = GregorianCalendar.getInstance();
@@ -405,8 +395,8 @@ public class DateUtil {
     /**
      * 某年某月某日的所在周的第一天(周一)。 如果传入的参数为null则返回null。
      * 
-     * @param date
-     * @return
+     * @param date 日期
+     * @return 所在周的第一天(周一)
      */
     public static Date getFirstDayOfWeek(Date date) {
         if (date == null) {
@@ -422,8 +412,8 @@ public class DateUtil {
     /**
      * 某年某月某日的所在周的周末一天(周日)。 如果传入的参数为null则返回null。
      * 
-     * @param date
-     * @return
+     * @param date 日期
+     * @return 所在周的周末一天(周日)
      */
     public static Date getLastDayOfWeek(Date date) {
         if (date == null) {
@@ -439,8 +429,8 @@ public class DateUtil {
     /**
      * 参数date所在月份的第一天。 如果传入的参数为null则返回null。
      * 
-     * @param date
-     * @return
+     * @param date 日期
+     * @return 所在月份的第一天
      */
     public static Date getFirstDayOfMonth(Date date) {
         if (date == null) {
@@ -455,8 +445,8 @@ public class DateUtil {
     /**
      * 参数Date所在月份的最后一天。 如果传入的参数为null则返回null。
      * 
-     * @param date
-     * @return
+     * @param date 日期
+     * @return 所在月份的最后一天
      */
     public static Date getLastDayOfMonth(Date date) {
         if (date == null) {
@@ -471,8 +461,8 @@ public class DateUtil {
     /**
      * 参数date所在月份的最大天数。 如果传入的参数为null，则返回-1。
      * 
-     * @param date
-     * @return
+     * @param date 日期
+     * @return 所在月份的最大天数
      */
     public static int getMaxDaysOfMonth(Date date) {
         if (date == null) {
@@ -488,13 +478,12 @@ public class DateUtil {
     /**
      * 比较日期：年月日。
      * 
-     * @param d0
-     * @param d1
+     * @param d0 日期1
+     * @param d1 日期2
      * @return the value <code>0</code> if the argument d1 is equal to d0;
      *         a value less than <code>0</code> if d0 is
      *         before d1 argument; and a value greater than <code>0</code>
      *         if d0 is after d1 argument.
-     * @exception NullPointerException if d0 or d1 is null.
      */
     public static int compareDay(Date d0, Date d1) {
         return d0.compareTo(d1);
@@ -503,11 +492,10 @@ public class DateUtil {
     /**
      * d0是否在[d1,d2]的日期区间中
      * 
-     * @param d0
-     * @param d1
-     * @param d2
-     * @return
-     * @exception NullPointerException if d0 or d1 or d2 is null.
+     * @param d0 当前日期
+     * @param d1 日期1
+     * @param d2 日期2
+     * @return 时间范围内则为true
      */
     public static boolean isDayInRange(Date d0, Date d1, Date d2) {
         return (compareDay(d0, d1) >= 0 && compareDay(d1, d2) <= 0) ? true : false;
@@ -517,9 +505,9 @@ public class DateUtil {
      * 返回N个月之后（之前）的某天。 例外情况：如果找到的天数大于此月的最后一天，则返回此月的最后一天。
      * 比如：输入(2007-1-31,1)，则返回2007-2-28
      * 
-     * @param date
-     * @param month
-     * @return
+     * @param date 日期
+     * @param monthNumber 月数
+     * @return N个月之后（之前）的某天
      */
     public static Date addMonths(Date date, int monthNumber) {
         if (monthNumber == 0) return date;
@@ -535,9 +523,9 @@ public class DateUtil {
     /**
      * 返回N天之后（之前）的某天。
      * 
-     * @param date
-     * @param days
-     * @return
+     * @param date 日期
+     * @param days 天数
+     * @return N天之后（之前）的某天
      */
     public static Date addDays(Date date, int days) {
         if (days == 0) return date;
@@ -553,8 +541,8 @@ public class DateUtil {
     /**
      * 截去time部分，使日期的时间部分变成变成00:00:00,如果传入的参数为null，则返回null。
      * 
-     * @param date
-     * @return
+     * @param date 日期
+     * @return 新的处理后的Date
      */
     public static Date truncateDate(Date date) {
         if (date == null) {
@@ -575,8 +563,8 @@ public class DateUtil {
      * 将date转为date对应的那一天的最后时间，使日期的时间部分变成变成23:59:59.999，如果传入的参数是null，则返回null
      * 。
      * 
-     * @param date
-     * @return
+     * @param date 日期
+     * @return date对应的那一天的最后时间
      */
     public static Date getLastDateTimeOfDate(Date date) {
         if (date == null) {
@@ -594,9 +582,9 @@ public class DateUtil {
     /**
      * 比较2个日期类型，返回2个日期相差的天数，正数表示前一个日期比后一个日期晚n天，负数表示前一日期比后一日期早n天
      * 
-     * @param compareDate
-     * @param compareToDate
-     * @return
+     * @param d1 待比较日期1
+     * @param d2 待比较日期2
+     * @return 相差天数
      */
     public static int compareDays(Date d1, Date d2) {
         if (d1 == null || d2 == null) throw new RuntimeException("Not compare between d1<" + d1
@@ -614,8 +602,8 @@ public class DateUtil {
      * 年的第一个星期开始于 1998 年 1 月 4 日 结束于 1998 年 1 月 10 日；1998 年头三天是 1997 年第 53
      * 个星期的一部分。
      * 
-     * @param date
-     * @return
+     * @param date 日期
+     * @return 给定时间在当年处于第几周
      */
     public static int getWeekOfYear(Date date) {
         if (date == null) {
@@ -631,7 +619,7 @@ public class DateUtil {
      * 
      * @param date
      *        当前日期
-     * @return
+     * @return 当前日期第一个时刻（二十四小时制） 00:00:00
      */
     public static Date getFirstTimeOfDay(Date date) {
         Calendar cal = Calendar.getInstance();
@@ -648,7 +636,7 @@ public class DateUtil {
      * 
      * @param date
      *        当前日期
-     * @return
+     * @return 当前日期最后一个时刻（二十四小时制） 23:59:59
      */
     public static Date getLastTimeOfDay(Date date) {
         Calendar cal = Calendar.getInstance();
@@ -663,9 +651,9 @@ public class DateUtil {
     /**
      * 获得指定格式的当前日期字符串
      * 
-     * @param date
-     * @param format
-     * @return
+     * @param date 日期
+     * @param format 格式化字符串
+     * @return 指定格式的当前日期字符串
      */
     public static String date(Date date, String format) {
         if (date != null) {
@@ -681,7 +669,7 @@ public class DateUtil {
      * 
      * @param date 日期时间串："yyyy-MM-dd HH:mm:ss"或"yyyy-MM-dd"格式
      * @param timeZone 时区：如北京时间“ETC/GMT-8”，UTC时间“GMT”
-     * @return
+     * @return 其它时区的时间
      */
     public static Date strToDateTime(String date, String timeZone) {
         Date d = null;
@@ -838,8 +826,8 @@ public class DateUtil {
     /**
      * 两个日期是否同一天
      * 
-     * @param date1
-     * @param date2
+     * @param date1 日期1
+     * @param date2 日期2
      * @return 如果是同一天返回true,否则返回false
      */
     public static boolean sameDay(Date date1, Date date2) {
@@ -896,9 +884,9 @@ public class DateUtil {
     /**
      * 获取time当天0点时刻的Date对象
      * 
-     * @param time
-     * @return
-     * @throws Exception
+     * @param time 时间
+     * @return 当天0点时刻的Date对象
+     * @throws Exception 异常
      */
     public static Date getBeginDay(Date time) throws Exception {
         return toDate(getDateText(time));
@@ -907,9 +895,9 @@ public class DateUtil {
     /**
      * 获取当前时间的Ｎ天的0点时间
      * 
-     * @param currentDate
-     * @param offSet
-     * @return
+     * @param currentDate 当前时间
+     * @param offSet 偏移数
+     * @return 当前时间的Ｎ天的0点时间
      */
     public static synchronized Date getDay0(Date currentDate, int offSet) {
         GregorianCalendar cal = new GregorianCalendar();
@@ -925,8 +913,8 @@ public class DateUtil {
     /**
      * 将yyyy-MM-dd 格式的ＳＴＲＩＮＧ 转化为ＤＡＴＥ
      * 
-     * @param queryDateStr
-     * @return Date
+     * @param queryDateStr 日期字符串
+     * @return Date 日期
      */
     public static Date toDate(String queryDateStr) {
 
@@ -943,8 +931,8 @@ public class DateUtil {
     /**
      * 将yyyy-MM-dd hh:mm:ss格式的 String转化为Date
      * 
-     * @param queryDateStr
-     * @return Date
+     * @param queryDateStr 时间字符串
+     * @return Date 时间
      */
     public static Date toDateFull(String queryDateStr) {
 
@@ -961,8 +949,8 @@ public class DateUtil {
     /**
      * 将yyyy-MM-dd hh:mm格式的 String转化为Date
      * 
-     * @param queryDateStr
-     * @return Date
+     * @param queryDateStr 时间字符串
+     * @return Date 时间
      */
     public static Date toDateHour(String queryDateStr) {
 
@@ -1031,9 +1019,9 @@ public class DateUtil {
     /**
      * 获得用于显示的日期
      * 
-     * @param queryDate
-     * @param offSet
-     * @return
+     * @param queryDate 时间字符串
+     * @param offSet 偏移数
+     * @return 用于显示的日期
      */
     public static String getQueryDateForView(String queryDate, int offSet) {
         Date dtTmp = DateUtil.toDate(queryDate);
@@ -1047,8 +1035,8 @@ public class DateUtil {
     /**
      * 获取月的天数
      * 
-     * @param date
-     * @return
+     * @param date 日期
+     * @return 月的天数
      */
     public static int getDayCountByMonth(Date date) {
         int year = getYear(date);

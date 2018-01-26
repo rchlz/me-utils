@@ -20,9 +20,8 @@ public class IPUtil {
 
     /**
      * 将ip从long转化为常用的Str格式
-     * 
-     * @param ipaddress
-     * @return
+     * @param ipaddress ip地址
+     * @return 处理后的IP地址字符串
      */
     public static String iplongToIp(long ipaddress) {
         StringBuffer sb = new StringBuffer("");
@@ -39,8 +38,8 @@ public class IPUtil {
     /**
      * string ip to long
      * 
-     * @param ipaddress
-     * @return
+     * @param ipaddress IP地址
+     * @return 处理后的long型IP
      */
     public static long ipStrToLong(String ipaddress) {
         try {
@@ -61,8 +60,8 @@ public class IPUtil {
     /**
      * 是否是本地IP
      * 
-     * @param strIp
-     * @return
+     * @param strIp IP地址
+     * @return 本地IP则返回true
      */
     public static boolean isLocal(String strIp) {
         if ("127.0.0.1".equals(strIp)) return true;
@@ -74,8 +73,8 @@ public class IPUtil {
     /**
      * 判断是否合法ip格式
      * 
-     * @param ip
-     * @return
+     * @param ip IP地址
+     * @return 合法IP地址则返回true
      */
     public static boolean isValidIP(String ip) {
         if (StringUtils.isBlank(ip) || "unknown".equalsIgnoreCase(ip)) {
@@ -86,9 +85,8 @@ public class IPUtil {
 
     /**
      * 获得X-Forwarded-For中的ip数据
-     * 
-     * @param request
-     * @return
+     * @param request request对象
+     * @return X-Forwarded-For中的ip数据
      */
     @SuppressWarnings("unchecked")
     public static String getIpFromXForwardedFor(HttpServletRequest request) {
@@ -119,8 +117,8 @@ public class IPUtil {
     /**
      * get client ip
      * 
-     * @param request
-     * @return
+     * @param request request对象
+     * @return 客户端IP地址
      */
     public static String getClientIP(HttpServletRequest request) {
         // return BizFilterUtil.getClientIP(request);
@@ -142,7 +140,7 @@ public class IPUtil {
     }
 
     /**
-     * @param args
+     * @param args 参数
      */
     public static void main(String[] args) {
 

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package cn.sinapp.meutils.util;
 
 import java.text.DateFormatSymbols;

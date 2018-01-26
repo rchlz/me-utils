@@ -13,12 +13,10 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
 /**
- * ClassName:HmacSHA1 <br/>
- * Date:     2017年2月13日 下午6:11:01 <br/>
+ * ClassName:HmacSHA1 
+ * Date:     2017年2月13日 下午6:11:01 
  * @author   guoweiwei gww0426@163.com
- * @version  
  * @since    JDK 1.7
- * @see 	 
  */
 public class HmacSHA1 {
 	
@@ -27,12 +25,10 @@ public class HmacSHA1 {
 	
 	/**   
 	* 生成签名数据,签名数据使用UTF-8编码
-	*    
 	* @param data 待加密的数据   
-	* @param key  加密使用的key   
-	* @throws InvalidKeyException   
-	* @throws NoSuchAlgorithmException
-	*    
+	* @param key  加密使用的key
+	* @return 签名后的字符串
+	* @throws Exception   抛出异常
 	*/    
 	public static String getSignature(String data,String key) throws Exception{  
 		byte[] keyBytes = key.getBytes(ENCODING);  

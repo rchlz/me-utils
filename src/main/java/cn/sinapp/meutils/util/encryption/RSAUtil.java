@@ -10,7 +10,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.Signature;
-import java.security.SignatureException;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
@@ -24,9 +23,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * <p>
  * RSA签名,加解密处理核心文件，注意：密钥长度1024
- * </p>
+ * @author guoweiwei gww0426@163.com
  */
 public class RSAUtil {
 
@@ -63,9 +61,8 @@ public class RSAUtil {
 	 * 生成密钥对(公钥和私钥)
 	 * </p>
 	 *
-	 * @return
-	 * @throws Exception
-	 * @throws Exception
+	 * @return 密钥对
+	 * @throws Exception 异常
 	 */
 	public static Map<String, Object> genKeyPair() throws Exception {
 		KeyPairGenerator keyPairGen = null;
@@ -96,7 +93,7 @@ public class RSAUtil {
 	 * @param charset
 	 *            编码格式
 	 * @return 签名结果(BASE64编码)
-	 * @throws Exception
+	 * @throws Exception 异常
 	 */
 	public static String sign(String text, String privateKey, String charset) throws Exception {
 		byte[] result = {};
@@ -129,7 +126,7 @@ public class RSAUtil {
 	 * @param charset
 	 *            编码格式
 	 * @return 验签结果
-	 * @throws Exception
+	 * @throws Exception 异常
 	 */
 	public static boolean verify(String text, String sign, String publicKey, String charset) throws Exception {
 		byte[] keyBytes = Base64Util.decode(publicKey);
@@ -159,8 +156,8 @@ public class RSAUtil {
 	 *            已加密数据
 	 * @param privateKey
 	 *            私钥(BASE64编码)
-	 * @return
-	 * @throws Exception
+	 * @return 私钥解密后的数据
+	 * @throws Exception 异常
 	 */
 	public static byte[] decryptByPrivateKey(byte[] encryptedData, String privateKey) throws Exception {
 		byte[] keyBytes = Base64Util.decode(privateKey);
@@ -200,8 +197,8 @@ public class RSAUtil {
 	 *            已加密数据
 	 * @param publicKey
 	 *            公钥(BASE64编码)
-	 * @return
-	 * @throws Exception
+	 * @return 公钥解密后的数据
+	 * @throws Exception 异常
 	 */
 	public static byte[] decryptByPublicKey(byte[] encryptedData, String publicKey) throws Exception {
 		byte[] keyBytes = Base64Util.decode(publicKey);
@@ -241,8 +238,8 @@ public class RSAUtil {
 	 *            源数据
 	 * @param publicKey
 	 *            公钥(BASE64编码)
-	 * @return
-	 * @throws Exception
+	 * @return 用指定公钥加密后的字节数组
+	 * @throws Exception 异常
 	 */
 	public static byte[] encryptByPublicKey(byte[] data, String publicKey) throws Exception {
 		byte[] keyBytes = Base64Util.decode(publicKey);
@@ -283,8 +280,8 @@ public class RSAUtil {
 	 *            源数据
 	 * @param privateKey
 	 *            私钥(BASE64编码)
-	 * @return
-	 * @throws Exception
+	 * @return 用指定私钥加密后的字节数组
+	 * @throws Exception 异常
 	 */
 	public static byte[] encryptByPrivateKey(byte[] data, String privateKey) throws Exception {
 		byte[] keyBytes = Base64Util.decode(privateKey);
@@ -316,11 +313,10 @@ public class RSAUtil {
 	}
 
 	/**
-	 * @param content
-	 * @param charset
-	 * @return
-	 * @throws SignatureException
-	 * @throws UnsupportedEncodingException
+	 * getContentBytes
+	 * @param content 内容
+	 * @param charset 编码
+	 * @return byte数组
 	 */
 	private static byte[] getContentBytes(String content, String charset) {
 		if (charset == null || "".equals(charset)) {
@@ -340,8 +336,8 @@ public class RSAUtil {
 	 *
 	 * @param keyMap
 	 *            密钥对
-	 * @return
-	 * @throws Exception
+	 * @return encode后的私钥
+	 * @throws Exception 异常
 	 */
 	public static String getPrivateKey(Map<String, Object> keyMap) throws Exception {
 		Key key = (Key) keyMap.get(PRIVATE_KEY);
@@ -355,8 +351,8 @@ public class RSAUtil {
 	 *
 	 * @param keyMap
 	 *            密钥对
-	 * @return
-	 * @throws Exception
+	 * @return encode之后的公钥
+	 * @throws Exception 异常
 	 */
 	public static String getPublicKey(Map<String, Object> keyMap) throws Exception {
 		Key key = (Key) keyMap.get(PUBLIC_KEY);
@@ -381,10 +377,9 @@ public class RSAUtil {
 	/**
 	 * 动态生成RSA密钥对
 	 * 
-	 * @param appId
-	 * @throws Exception
-	 * @author dongdong.zhang
-	 * @date 2016年4月1日 下午7:36:37
+	 * @param appId appId
+	 * @throws Exception 异常
+	 * @author dongdong.zhang 
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void rsaKeyGenerate(String appId) throws Exception {

@@ -31,12 +31,10 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
 /**
- * ClassName:HttpUtil <br/>
- * Date:     2017年3月17日 下午3:24:13 <br/>
+ * ClassName:HttpUtil 
+ * Date:     2017年3月17日 下午3:24:13 
  * @author   guoweiwei gww0426@163.com
- * @version  
  * @since    JDK 1.7
- * @see 	 
  */
 public class HttpUtil {
 	

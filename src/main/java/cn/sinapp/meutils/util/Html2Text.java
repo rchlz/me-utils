@@ -9,9 +9,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
+ * HTML转换为普通文本工具类
  * @author zhangdong zhangdong147896325@163.com
- * 
- *         2012-6-25 下午4:03:56
  */
 public class Html2Text {
 
@@ -47,8 +46,8 @@ public class Html2Text {
     /**
      * 剔除标签 (同时剔除select标签的全部)
      * 
-     * @param htmlStr
-     * @return
+     * @param htmlStr 待处理的HTML代码
+     * @return 返回处理后的HTML字符串
      */
     public static String html2Text(String htmlStr) {
 

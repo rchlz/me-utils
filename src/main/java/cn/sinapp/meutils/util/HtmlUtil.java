@@ -1,11 +1,4 @@
 package cn.sinapp.meutils.util;
-/**
- * 
- * File Created at 2011-3-24
- * 
- * All rights reserved.
- *
- */
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -33,12 +26,11 @@ public class HtmlUtil {
 
     /**
      * 取得指定URL的Web内容，加入取内容超时处理
-     * 
      * @author 郑卿
-     * @param theURL
+     * @param theURL url地址
      * @param connTimeout 连接超时时间(毫秒)
      * @param requTimeout 获取超时时间(毫秒)
-     * @return
+     * @return 指定URL的Web内容
      */
     public static String getWebContentWithTimeout(String theURL, int connTimeout, int requTimeout) {
         String sTotalString = "";
@@ -172,6 +164,8 @@ public class HtmlUtil {
 
     /**
      * format content for html output
+     * @param desc 描述内容
+     * @return 处理后的描述内容
      */
     public static String formatDescNoEncodeScript(String desc) {
         desc = desc.replaceAll("\n", "<br/>");
@@ -194,6 +188,8 @@ public class HtmlUtil {
 
     /**
      * format content for html output
+     * @param desc 描述内容
+     * @return 处理后的描述内容
      */
     public static String formatDescNoEncode(String desc) {
         desc = desc.replaceAll("\n", "<br/>");
@@ -266,11 +262,11 @@ public class HtmlUtil {
 
     /**
      * 用来替换在querystring 中的参数的值
-     * 
-     * @param parameter 没有此参数则给加上
-     * @param value 为空(null or "")时从querystring 中删除此参数
-     * @return
-     * @throws UnsupportedEncodingException 
+     * @param querystring 查询字符串
+     * @param parameters 没有此参数则给加上
+     * @param values 为空(null or "")时从querystring 中删除此参数
+     * @return 处理后的字符串
+     * @throws UnsupportedEncodingException  不支持的编码
      */
     public static String replaceParameterValue(final String querystring, List<String> parameters,
                                                List<String> values) throws UnsupportedEncodingException {
@@ -288,11 +284,11 @@ public class HtmlUtil {
 
     /**
      * 用来替换在querystring 中的参数的值, 并判断在queryString前是否加?
-     * 
-     * @param parameter 没有此参数则给加上
-     * @param value 为空(null or "")时从querystring 中删除此参数
-     * @return
-     * @throws UnsupportedEncodingException 
+     * @param querystring 查询字符串
+     * @param parameters 没有此参数则给加上
+     * @param values 为空(null or "")时从querystring 中删除此参数
+     * @return 处理后的字符串
+     * @throws UnsupportedEncodingException 不支持的编码
      */
     public static String replaceParameterValueEx(final String querystring, List<String> parameters,
                                                  List<String> values) throws UnsupportedEncodingException {
@@ -305,8 +301,8 @@ public class HtmlUtil {
     /**
      * 显示一个url ， 没有http://的，自动加上
      * 
-     * @param url
-     * @return
+     * @param url url地址
+     * @return 处理后的网址
      */
     public static String formatHomepage(String url) {
         String result = "";
@@ -321,6 +317,8 @@ public class HtmlUtil {
 
     /**
      * 把html代码用 document.write输出，静态页面or php使用script src=... 调用时会用到
+     * @param html html内容
+     * @return 包含document.write的html内容
      */
     public static String html2Script(String html) {
         String script = "";
@@ -342,7 +340,7 @@ public class HtmlUtil {
     }
 
     /**
-     * 把特殊字符转换成htmlcode:<,>,&,",bbs中标题需要htmlcode
+     * 把特殊字符转换成htmlcode:&lt;,&gt;,&amp;,",bbs中标题需要htmlcode
      * 
      * @param s output
      * @return string
@@ -353,10 +351,10 @@ public class HtmlUtil {
     }
 
     /**
-     * 把特殊字符转换成htmlcode:<,>,&,",bbs中标题需要htmlcode
+     * 把特殊字符转换成htmlcode:&lt;,&gt;,&amp;,",bbs中标题需要htmlcode
      * 
      * @param s output
-     * @param isurl url不对 & 进行转换
+     * @param isurl url不对 &amp; 进行转换
      * @return string
      * @author Lazyman Tong
      */
@@ -408,10 +406,10 @@ public class HtmlUtil {
     }
 
     /**
-     * 把特殊字符转换成htmlcode:<,>,&,",bbs中标题需要htmlcode
+     * 把特殊字符转换成htmlcode:&lt;,&gt;,&amp;,",bbs中标题需要htmlcode
      * 
-     * @param
-     * @return
+     * @param str 待处理的字符串
+     * @return 处理后的字符串
      */
     public static String dhtmlSpecialchars1(String str) {
         str = str.replaceAll("&", "&amp;");

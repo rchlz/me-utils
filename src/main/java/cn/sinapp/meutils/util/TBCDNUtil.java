@@ -48,7 +48,7 @@ public class TBCDNUtil {
 	/**
 	 * 判断图片是否属于淘宝CDN，注意这里使用的是正则分析URL，不一定是完全准确的,具体规则参看实现代码
 	 * @param picUrl 图片地址
-	 * @return
+	 * @return 淘宝CDN则返回true
 	 */
 	public static boolean isTBCDNPic(String picUrl){
 		if (StringUtils.isBlank(picUrl))
@@ -66,7 +66,7 @@ public class TBCDNUtil {
 	/**
 	 * 判断图片是否属于淘宝CDN，注意这里使用的是正则分析URL，不一定是完全准确的,具体规则参看实现代码
 	 * @param picUrl 图片地址
-	 * @return
+	 * @return tfs的文件名
 	 */
 	public static String getTfsName(String picUrl){
 		if (StringUtils.isBlank(picUrl))
@@ -148,7 +148,7 @@ public class TBCDNUtil {
 	 * <p>给${CDN}/ens/T15TqeXfXmXXb1upjX.jpg加上210x1000的后缀,新的图片地址是${CDN}/ens/T15TqeXfXmXXb1upjX.jpg_210x1000.jpg</p>
 	 * <p>给${CDN}/ens/T15TqeXfXmXXb1upjX.jpg_210x1000.jpg加上210x1000的后缀,新的图片地址仍旧是${CDN}/ens/T15TqeXfXmXXb1upjX.jpg_210x1000.jpg</p>
 	 * <p>给${CDN}/ens/T15TqeXfXmXXb1upjX.jpg_24x24.jpg加上210x1000的后缀,新的图片地址是${CDN}/ens/T15TqeXfXmXXb1upjX.jpg_210x1000.jpg</p>
-	 * @param picUrl
+	 * @param picUrl 图片地址
 	 * @param sizeX 图片的宽度
 	 * @param sizeY 图片的高度
 	 * @return 返回指定尺寸后缀的图片.如果sizeX==0或者sizeY==0，返回原picUrl
@@ -175,8 +175,8 @@ public class TBCDNUtil {
 	
 	/**
 	 * 取出cdn图片的后缀
-	 * @param picUrl
-	 * @return
+	 * @param picUrl 图片地址
+	 * @return 不含图片后缀的url
 	 */
 	public static String removePicSuffix(String picUrl){
 		if (StringUtils.isBlank(picUrl))
@@ -197,7 +197,7 @@ public class TBCDNUtil {
 	}
 
 	/**
-	 * @param args
+	 * @param args 参数
 	 */
 	public static void main(String[] args) {
 		

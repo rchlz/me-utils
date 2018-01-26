@@ -1,9 +1,5 @@
 package cn.sinapp.meutils.util;
 
-/**
- * all rights reserved by zhanqiong, 2005
- */
-
 import java.beans.XMLDecoder;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
@@ -116,9 +112,9 @@ public class StringUtil {
 	/**
 	 * 把string array or list用给定的符号symbol连接成一个字符串
 	 * 
-	 * @param array
-	 * @param symbol
-	 * @return
+	 * @param array 数组
+	 * @param symbol 连接符
+	 * @return 返回连接符链接的数组字符串
 	 */
 	public static String joinString(List array, String symbol) {
 		String result = "";
@@ -154,9 +150,9 @@ public class StringUtil {
 	 * 
 	 * @param len
 	 *            　字符串长度　长度计量单位为一个GBK汉字　　两个英文字母计算为一个单位长度
-	 * @param str
-	 * @param symbol
-	 * @return
+	 * @param str 字符串
+	 * @param symbol 替代符号
+	 * @return 字符串
 	 */
 	public static String getLimitLengthString(String str, int len, String symbol) {
 		int iLen = len * 2;
@@ -191,13 +187,12 @@ public class StringUtil {
 	}
 
 	/**
-	 * 截取字符串　超出的字符用symbol代替 　　
+	 * 截取字符串　超出的字符用...代替 　　
 	 * 
 	 * @param len
 	 *            　字符串长度　长度计量单位为一个GBK汉字　　两个英文字母计算为一个单位长度
-	 * @param str
-	 * @param symbol
-	 * @return12
+	 * @param str 字符串
+	 * @return 字符串
 	 */
 	public static String getLimitLengthString(String str, int len) {
 		return getLimitLengthString(str, len, "...");
@@ -215,9 +210,9 @@ public class StringUtil {
 	 * 
 	 * 截取字符，不转码
 	 * 
-	 * @param subject
-	 * @param size
-	 * @return
+	 * @param subject 字符串
+	 * @param size 长度
+	 * @return 符合size长度的字符串
 	 */
 	public static String subStrNotEncode(String subject, int size) {
 		if (subject.length() > size) {
@@ -229,9 +224,9 @@ public class StringUtil {
 	/**
 	 * 把string array or list用给定的符号symbol连接成一个字符串
 	 * 
-	 * @param array
-	 * @param symbol
-	 * @return
+	 * @param array 数组
+	 * @param symbol 连接符
+	 * @return 字符串
 	 */
 	public static String joinString(String[] array, String symbol) {
 		String result = "";
@@ -268,12 +263,12 @@ public class StringUtil {
 	/**
 	 * 检查联系人信息是否填写，电话，手机，email必须填至少一个，email填了的话检查格式
 	 * 
-	 * @param phoneCity
-	 * @param phoneNumber
-	 * @param phoneExt
-	 * @param mobileNumber
-	 * @param email
-	 * @return
+	 * @param phoneCity phoneCity
+	 * @param phoneNumber 电话
+	 * @param phoneExt 扩展电话
+	 * @param mobileNumber 手机号
+	 * @param email 邮箱
+	 * @return true或false
 	 */
 	public static boolean checkContactInfo(String phoneCity,
 			String phoneNumber, String phoneExt, String mobileNumber,
@@ -294,7 +289,7 @@ public class StringUtil {
 	/**
 	 * 检查数据串中是否包含非法字符集
 	 * 
-	 * @param str
+	 * @param str 字符串
 	 * @return [true]|[false] 包含|不包含
 	 */
 	public static boolean check(String str) {
@@ -348,8 +343,8 @@ public class StringUtil {
 	/**
 	 * 检查是否是email, when null or '' return true
 	 * 
-	 * @param email
-	 * @return
+	 * @param email 邮箱地址
+	 * @return 是邮箱则返回true
 	 */
 	public static boolean isEmail(String email) {
 		if (email != null && email.trim().length() > 0) {
@@ -364,9 +359,9 @@ public class StringUtil {
 
 	/**
 	 * 根据指定的字符把源字符串分割成一个数组
-	 * 
-	 * @param src
-	 * @return
+	 * @param pattern 规则
+	 * @param src  字符串
+	 * @return 数组
 	 */
 	public static List<String> parseString2ListByCustomerPattern(
 			String pattern, String src) {
@@ -384,8 +379,8 @@ public class StringUtil {
 	/**
 	 * 根据指定的字符把源字符串分割成一个数组
 	 * 
-	 * @param src
-	 * @return
+	 * @param src 字符串
+	 * @return 数组
 	 */
 	public static List<String> parseString2ListByPattern(String src) {
 		String pattern = "，|,|、|。";
@@ -394,9 +389,10 @@ public class StringUtil {
 
 	/**
 	 * 格式化一个float
-	 * 
+	 * @param f 要格式化的float
 	 * @param format
 	 *            要格式化成的格式 such as #.00, #.#
+	 * @return 格式化后的字符串
 	 */
 
 	public static String formatFloat(float f, String format) {
@@ -408,8 +404,8 @@ public class StringUtil {
 	 * 判断是否是空字符串 null和"" 都返回 true
 	 * 
 	 * @author Robin Chang
-	 * @param s
-	 * @return
+	 * @param s 字符串
+	 * @return 为空则返回true
 	 */
 	public static boolean isEmpty(String s) {
 		if (s != null && !s.equals("")) {
@@ -419,8 +415,8 @@ public class StringUtil {
 	}
 
 	/**
-	 * 自定义的分隔字符串函数 例如: 1,2,3 =>[1,2,3] 3个元素 ,2,3=>[,2,3] 3个元素 ,2,3,=>[,2,3,]
-	 * 4个元素 ,,,=>[,,,] 4个元素
+	 * 自定义的分隔字符串函数 例如: 1,2,3 =&gt;[1,2,3] 3个元素 ,2,3=&gt;[,2,3] 3个元素 ,2,3,=&gt;[,2,3,]
+	 * 4个元素 ,,,=&gt;[,,,] 4个元素
 	 * 
 	 * 5.22算法修改，为提高速度不用正则表达式 两个间隔符,,返回""元素
 	 * 
@@ -461,10 +457,10 @@ public class StringUtil {
 	}
 
 	/**
-	 * 把 名=值 参数表转换成字符串 (a=1,b=2 =>a=1&b=2)
+	 * 把 名=值 参数表转换成字符串 (a=1,b=2 =&gt;a=1&amp;b=2)
 	 * 
-	 * @param map
-	 * @return
+	 * @param map map
+	 * @return 字符串
 	 */
 	public static String linkedHashMapToString(LinkedHashMap<String, String> map) {
 		if (map != null && map.size() > 0) {
@@ -482,11 +478,9 @@ public class StringUtil {
 	}
 
 	/**
-	 * 解析字符串返回 名称=值的参数表 (a=1&b=2 => a=1,b=2)
-	 * 
-	 * @see test.koubei.util.StringUtilTest#testParseStr()
-	 * @param str
-	 * @return
+	 * 解析字符串返回 名称=值的参数表 (a=1&amp;b=2 =&gt; a=1,b=2
+	 * @param str 带转换的字符串
+	 * @return 转换后的map
 	 */
 	@SuppressWarnings("unchecked")
 	public static LinkedHashMap<String, String> toLinkedHashMap(String str) {
@@ -550,10 +544,9 @@ public class StringUtil {
 	}
 
 	/**
-	 * 数字转字符串,如果num<=0 则输出"";
-	 * 
-	 * @param num
-	 * @return
+	 * 数字转字符串,如果num&lt;=0 则输出"";
+	 * @param num 数字
+	 * @return 字符串
 	 */
 	public static String numberToString(Object num) {
 		if (num == null) {
@@ -574,10 +567,10 @@ public class StringUtil {
 	/**
 	 * 货币转字符串
 	 * 
-	 * @param money
+	 * @param money money
 	 * @param style
 	 *            样式 [default]要格式化成的格式 such as #.00, #.#
-	 * @return
+	 * @return 字符串
 	 */
 
 	public static String moneyToString(Object money, String style) {
@@ -609,9 +602,9 @@ public class StringUtil {
 	/**
 	 * 在sou中是否存在finds 如果指定的finds字符串有一个在sou中找到,返回true;
 	 * 
-	 * @param sou
-	 * @param find
-	 * @return
+	 * @param sou 待搜索的字符串
+	 * @param finds 需要查找的字符串
+	 * @return 找到则返回true
 	 */
 	public static boolean strPos(String sou, String... finds) {
 		if (sou != null && finds != null && finds.length > 0) {
@@ -641,9 +634,9 @@ public class StringUtil {
 	/**
 	 * 判断两个字符串是否相等 如果都为null则判断为相等,一个为null另一个not null则判断不相等 否则如果s1=s2则相等
 	 * 
-	 * @param s1
-	 * @param s2
-	 * @return
+	 * @param s1 字符串
+	 * @param s2 字符串
+	 * @return 相等返回true
 	 */
 	public static boolean equals(String s1, String s2) {
 		if (StringUtil.isEmpty(s1) && StringUtil.isEmpty(s2)) {
@@ -692,8 +685,8 @@ public class StringUtil {
 	/**
 	 * 把xml 转为object
 	 * 
-	 * @param xml
-	 * @return
+	 * @param xml xml内容
+	 * @return 对象
 	 */
 	public static Object xmlToObject(String xml) {
 		try {
@@ -710,9 +703,9 @@ public class StringUtil {
 	/**
 	 * 按规定长度截断字符串，没有...的省略符号
 	 * 
-	 * @param subject
-	 * @param size
-	 * @return
+	 * @param subject 字符串
+	 * @param size 长度
+	 * @return 截取长度的字符串
 	 */
 	public static String subStringNoEllipsis(String subject, int size) {
 		subject = TextUtils.htmlEncode(subject);
@@ -768,7 +761,7 @@ public class StringUtil {
 	 * 随即生成指定位数的含数字验证码字符串
 	 * 
 	 * @author Peltason
-	 * @date 2007-5-9
+
 	 * @param bit
 	 *            指定生成验证码位数
 	 * @return String
@@ -785,7 +778,7 @@ public class StringUtil {
 	 * 随即生成指定位数的含验证码字符串
 	 * 
 	 * @author Peltason
-	 * @date 2007-5-9
+
 	 * @param bit
 	 *            指定生成验证码位数
 	 * @return String
@@ -803,8 +796,7 @@ public class StringUtil {
 	 * 检查字符串是否属于手机号码
 	 * 
 	 * @author Peltason
-	 * @date 2007-5-9
-	 * @param str
+	 * @param str 字符串
 	 * @return boolean
 	 */
 	public static boolean isMobile(String str) {
@@ -823,9 +815,8 @@ public class StringUtil {
 	 * Wap页面的非法字符检查
 	 * 
 	 * @author hugh115
-	 * @date 2007-06-29
-	 * @param str
-	 * @return
+	 * @param str 字符串
+	 * @return 替换后的字符串
 	 */
 	public static String replaceWapStr(String str) {
 		if (str != null) {
@@ -867,9 +858,8 @@ public class StringUtil {
 	 * 页面中去除字符串中的空格、回车、换行符、制表符
 	 * 
 	 * @author shazao
-	 * @date 2007-08-17
-	 * @param str
-	 * @return
+	 * @param str 字符串
+	 * @return 替换后的字符串
 	 */
 	public static String replaceBlank(String str) {
 		if (str != null) {
@@ -882,11 +872,9 @@ public class StringUtil {
 
 	/**
 	 * 全角生成半角
-	 * 
 	 * @author bailong
-	 * @date 2007-08-29
-	 * @param str
-	 * @return
+	 * @param QJstr 字符串
+	 * @return 处理后的字符串
 	 */
 	public static String Q2B(String QJstr) {
 		String outStr = "";
@@ -943,8 +931,8 @@ public class StringUtil {
 	 * *************************************************************************
 	 * 修改：刘黎明 修改时间:2007/3/1
 	 * 
-	 * @param str
-	 * @return
+	 * @param str 字符串
+	 * @return 处理后的字符串
 	 ************************************************************************* 
 	 */
 	public static String removeHTMLLableExe(String str) {
@@ -1175,11 +1163,11 @@ public class StringUtil {
 	/**
 	 * 带有前一次替代序列的正则表达式替代
 	 * 
-	 * @param s
-	 * @param pf
-	 * @param pb
-	 * @param start
-	 * @return
+	 * @param s 字符串
+	 * @param pf 字符串
+	 * @param pb 字符串
+	 * @param start 开始位置
+	 * @return 字符串
 	 */
 	public static String stringReplace(String s, String pf, String pb, int start) {
 		Pattern pattern_hand = Pattern.compile(pf);
@@ -1304,7 +1292,7 @@ public class StringUtil {
 	 * 用要通过URL传输的内容进行编码
 	 * 
 	 * @author 刘黎明
-	 * @param 源字符串
+	 * @param src 源字符串
 	 * @return 经过编码的内容
 	 ************************************************************************* 
 	 */
@@ -1325,9 +1313,9 @@ public class StringUtil {
 
 	/**
 	 * *************************************************************************
-	 * 
+	 *  getGBK
 	 * @author 李锋 2007.4.18
-	 * @param 传入字符串
+	 * @param str 传入字符串
 	 * @return 经过解码的内容
 	 ************************************************************************* 
 	 */
@@ -1356,9 +1344,9 @@ public class StringUtil {
 	 * yahoo首页中切割字符串.
 	 * 
 	 * @author yxg
-	 * @date 2007-09-17
-	 * @param str
-	 * @return
+	 * @param subject 字符串
+	 * @param size 长度
+	 * @return 处理后的字符串
 	 */
 	public static String subYhooString(String subject, int size) {
 		subject = subject.substring(1, size);
@@ -1371,14 +1359,11 @@ public class StringUtil {
 	}
 
 	/**
-	 * 泛型方法(通用)，把list转换成以“,”相隔的字符串 调用时注意类型初始化（申明类型） 如：List<Integer> intList =
-	 * new ArrayList<Integer>(); 调用方法：StringUtil.listTtoString(intList);
+	 * 泛型方法(通用)，把list转换成以“,”相隔的字符串 调用时注意类型初始化（申明类型） 如：List&lt;Integer&gt; intList =
+	 * new ArrayList&lt;Integer&gt;(); 调用方法：StringUtil.listTtoString(intList);
 	 * 效率：list中4条信息，1000000次调用时间为850ms左右
-	 * 
 	 * @author fengliang
-	 * @serialData 2008-01-09
-	 * @param <T>
-	 *            泛型
+	 * @param <T> &lt;T&gt;
 	 * @param list
 	 *            list列表
 	 * @return 以“,”相隔的字符串
@@ -1403,7 +1388,6 @@ public class StringUtil {
 	 * 把整形数组转换成以“,”相隔的字符串
 	 * 
 	 * @author fengliang
-	 * @serialData 2008-01-08
 	 * @param a
 	 *            数组a
 	 * @return 以“,”相隔的字符串
@@ -1425,9 +1409,9 @@ public class StringUtil {
 
 	/**
 	 * 判断文字内容重复
-	 * 
+	 * @param content 字符串
 	 * @author 沙枣
-	 * @Date 2008-04-17
+	 * @return 存在重复文字则返回true
 	 */
 	public static boolean isContentRepeat(String content) {
 		int similarNum = 0;
@@ -1486,8 +1470,8 @@ public class StringUtil {
 	 * Ascii转为Char
 	 * 
 	 * @author 甜瓜
-	 * @param asc
-	 * @return
+	 * @param asc ascii码
+	 * @return 字符串
 	 */
 	public static String AsciiToChar(int asc) {
 		String TempStr = "A";
@@ -1499,8 +1483,9 @@ public class StringUtil {
 	/**
 	 * 判断是否是空字符串 null和"" null返回result,否则返回字符串
 	 * 
-	 * @param s
-	 * @return
+	 * @param s 字符串
+	 * @param result 字符串
+	 * @return 字符串
 	 */
 	public static String isEmpty(String s, String result) {
 		if (s != null && !s.equals("")) {
@@ -1510,10 +1495,10 @@ public class StringUtil {
 	}
 
 	/**
-	 * 将带有htmlcode代码的字符转换成<>&'"
+	 * 将带有htmlcode代码的字符转换成&lt;&gt;&amp;'"
 	 * 
-	 * @param str
-	 * @return
+	 * @param str 字符串
+	 * @return 字符串
 	 */
 	public static String htmlcodeToSpecialchars(String str) {
 		str = str.replaceAll("&amp;", "&");
@@ -1527,8 +1512,8 @@ public class StringUtil {
 	/**
 	 * 移除html标签
 	 * 
-	 * @param htmlstr
-	 * @return
+	 * @param htmlstr html代码
+	 * @return 处理后的HTML代码
 	 */
 	public static String removeHtmlTag(String htmlstr) {
 		Pattern pat = Pattern.compile("\\s*<.*?>\\s*", Pattern.DOTALL
@@ -1562,6 +1547,8 @@ public class StringUtil {
 
 	/**
 	 * 把字节码转换成16进制
+	 * @param bytes 字节数组
+	 * @return 字符串
 	 */
 	public static String byte2hex(byte bytes[]) {
 		StringBuffer retString = new StringBuffer();
@@ -1575,8 +1562,8 @@ public class StringUtil {
 	/**
 	 * 把16进制转换成字节码
 	 * 
-	 * @param hex
-	 * @return
+	 * @param hex 15进制字符串
+	 * @return 字节数组
 	 */
 	public static byte[] hex2byte(String hex) {
 		byte[] bts = new byte[hex.length() / 2];
@@ -1594,7 +1581,7 @@ public class StringUtil {
 	 *            希望返回的字符串长度
 	 * @param data
 	 *            传入的数值
-	 * @return
+	 * @return 固定长度的字符串
 	 */
 	public static String getStringByInt(int length, String data) {
 		String s_data = "";
@@ -1612,8 +1599,8 @@ public class StringUtil {
 	/**
 	 * 判断是否位数字,并可为空
 	 * 
-	 * @param src
-	 * @return
+	 * @param src 字符串
+	 * @return 数字或者null返回true
 	 */
 	public static boolean isNumericAndCanNull(String src) {
 		Pattern numericPattern = Pattern.compile("^[0-9]+$");
@@ -1630,9 +1617,9 @@ public class StringUtil {
 	}
 
 	/**
-	 * 
-	 * @param src
-	 * @return
+	 * isFloatAndCanNull
+	 * @param src String
+	 * @return float类型或者null返回true
 	 */
 	public static boolean isFloatAndCanNull(String src) {
 		Pattern numericPattern = Pattern
@@ -1674,8 +1661,8 @@ public class StringUtil {
 	/**
 	 * 根据指定整型list 组装成为一个字符串
 	 * 
-	 * @param src
-	 * @return
+	 * @param list 列表
+	 * @return 转换后的字符串
 	 */
 	public static String listToString(List<Integer> list) {
 		String str = "";
@@ -1693,9 +1680,8 @@ public class StringUtil {
 	 * 页面的非法字符检查
 	 * 
 	 * @author shazao
-	 * @date 2007-11-29
-	 * @param str
-	 * @return
+	 * @param str 字符串
+	 * @return 处理后的字符串
 	 */
 	public static String replaceStr(String str) {
 		if (str != null && str.length() > 0) {
@@ -1789,9 +1775,8 @@ public class StringUtil {
 	 * 全角字符变半角字符
 	 * 
 	 * @author shazao
-	 * @date 2008-04-03
-	 * @param str
-	 * @return
+	 * @param str 字符串
+	 * @return 转换后的字符串
 	 */
 	public static String full2Half(String str) {
 		if (str == null || "".equals(str))
@@ -1815,9 +1800,8 @@ public class StringUtil {
 	 * 全角括号转为半角
 	 * 
 	 * @author shazao
-	 * @date 2007-11-29
-	 * @param str
-	 * @return
+	 * @param str 字符串
+	 * @return 转换后的字符串
 	 */
 	public static String replaceBracketStr(String str) {
 		if (str != null && str.length() > 0) {
@@ -1834,7 +1818,7 @@ public class StringUtil {
 	 *            源字符串
 	 * @param split
 	 *            截止字符串
-	 * @return
+	 * @return 截取后的字符串
 	 */
 	public static String subStr(String src, String split) {
 		if (!isEmpty(src)) {
@@ -1850,9 +1834,9 @@ public class StringUtil {
 	 * 取url里的keyword（可选择参数）参数，用于整站搜索整合
 	 * 
 	 * @author huoshao
-	 * @param params
-	 * @param qString
-	 * @return
+	 * @param params params
+	 * @param qString qString
+	 * @return String
 	 */
 	public static String getKeyWord(String params, String qString) {
 		String keyWord = "";
@@ -1870,9 +1854,9 @@ public class StringUtil {
 	}
 
 	/**
-	 * 解析字符串返回map键值对(例：a=1&b=2 => a=1,b=2)
+	 * 解析字符串返回map键值对(例：a=1&amp;b=2 =&gt; a=1,b=2)
 	 * @param query 源参数字符串
-	 * @param split1 键值对之间的分隔符（例：&）
+	 * @param split1 键值对之间的分隔符（例：&amp;）
 	 * @param split2 key与value之间的分隔符（例：=）
 	 * @param dupLink 重复参数名的参数值之间的连接符，连接后的字符串作为该参数的参数值，可为null null：不允许重复参数名出现，则靠后的参数值会覆盖掉靠前的参数值。
 	 * @return map
@@ -1929,8 +1913,8 @@ public class StringUtil {
 	/**
 	 * 将list 用传入的分隔符组装为String
 	 * 
-	 * @param list
-	 * @param slipStr
+	 * @param list 列表
+	 * @param slipStr 分隔符
 	 * @return String
 	 */
 	@SuppressWarnings("unchecked")
@@ -2099,9 +2083,9 @@ public class StringUtil {
 	
 	/**
 	 * 获取指定长度的标题
-	 * @param title
-	 * @param len
-	 * @return
+	 * @param title 标题
+	 * @param len 长度
+	 * @return 截取后的标题
 	 */
 	public static String getFormattedTitle(String title,int len){
 		

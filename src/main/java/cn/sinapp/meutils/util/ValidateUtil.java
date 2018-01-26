@@ -24,8 +24,8 @@ public class ValidateUtil {
     /**
      * 检查手机号的合法性
      * 
-     * @param mobile
-     * @return
+     * @param mobile 手机号
+     * @return 手机合法则为true
      */
     public static boolean checkMobile(String mobile) {
         return isValidMobile(mobile);
@@ -47,8 +47,8 @@ public class ValidateUtil {
     /**
      * 验证邮箱是否合法
      * 
-     * @param email
-     * @return
+     * @param email 邮箱地址
+     * @return 邮箱合法则为true
      */
     public static boolean isEmail(String email) {
         if (StringUtils.isNotEmpty(email)) {
@@ -64,8 +64,8 @@ public class ValidateUtil {
     /**
      * 检查文件是否是可允许的图片
      * 
-     * @param fileName
-     * @return
+     * @param fileName 文件名
+     * @return 图片被允许返回true
      */
     public static boolean checkImageType(String fileName) {
 
@@ -108,6 +108,8 @@ public class ValidateUtil {
 
     /**
      * 判断字符是否中文字
+     * @param word char
+     * @return 如果是中文字返回true
      */
     public boolean checkChinese(char word) {
         if ((word >= 0x4e00) && (word <= 0x9fbb)) {
@@ -120,7 +122,7 @@ public class ValidateUtil {
     /**
      * 中文转unicode
      * 
-     * @param str
+     * @param s 需要转换的中文汉字
      * @return 反回unicode编码
      */
     public static String chineseToUnicode(String s) {
@@ -183,7 +185,7 @@ public class ValidateUtil {
      * 
      * @param origin 原始字符串
      * @param len 截取长度(一个汉字长度按2算的)
-     * @param c 后缀
+     * @param postfix 后缀
      * @return 返回的字符串
      */
     public static String subString(String origin, int len, String postfix) {

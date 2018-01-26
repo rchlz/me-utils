@@ -19,7 +19,7 @@ public class RandomUtil {
 	/**
 	 * 生成随机字符串
 	 * @param length 随机字符串长度
-	 * @return
+	 * @return 随机字符串
 	 */
 	public static String generateRandomString(int length) {
 	    StringBuilder sb = new StringBuilder();
@@ -32,7 +32,7 @@ public class RandomUtil {
 	/**
 	 * 生成随机数
 	 * @param length 随机数长度
-	 * @return
+	 * @return 随机数字符串
 	 */
 	public static String generateRandomNumberStr(int length) {
 	    StringBuilder sb = new StringBuilder();
@@ -45,7 +45,7 @@ public class RandomUtil {
 	/**
 	 * 生成随机数
 	 * @param length  随机数长度
-	 * @return
+	 * @return 随机数
 	 */
 	public static int generateRandomInteger(int length) {
 	    return Integer.valueOf(generateRandomNumberStr(length));
@@ -54,7 +54,7 @@ public class RandomUtil {
 	/**
 	 * 生成随机数
 	 * @param length  随机数长度
-	 * @return
+	 * @return 随机数
 	 */
 	public static long generateRandomLong(int length) {
 	    return Long.valueOf(generateRandomNumberStr(length));

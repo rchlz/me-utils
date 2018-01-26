@@ -1,7 +1,5 @@
 package cn.sinapp.meutils.util;
-/**
- * all rights reserved by ming, 2005
- */
+
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -29,6 +27,7 @@ public class FileUtil {
 	 * @param encoding
 	 *            文本文件打开的编码方式
 	 * @return 返回文本文件的内容
+	 * @throws IOException 文件读取异常
 	 */
 	public static String readTxt(String filePathAndName, String encoding)
 			throws IOException {
@@ -117,7 +116,6 @@ public class FileUtil {
 	 *            文本文件完整绝对路径及文件名
 	 * @param fileContent
 	 *            文本文件内容
-	 * @return
 	 */
 	public static void createFile(String filePathAndName, String fileContent) {
 
@@ -148,7 +146,6 @@ public class FileUtil {
 	 *            文本文件内容
 	 * @param encoding
 	 *            编码方式 例如 GBK 或者 UTF-8
-	 * @return
 	 */
 	public static void createFile(String filePathAndName, String fileContent,
 			String encoding) {
@@ -174,7 +171,7 @@ public class FileUtil {
 	 * 
 	 * @param filePathAndName
 	 *            文本文件完整绝对路径及文件名
-	 * @return Boolean 成功删除返回true遭遇异常返回false
+	 * @return 成功删除返回true遭遇异常返回false
 	 */
 	public static boolean delFile(String filePathAndName) {
 		boolean bea = false;
@@ -199,7 +196,6 @@ public class FileUtil {
 	 * 
 	 * @param folderPath
 	 *            文件夹完整绝对路径
-	 * @return
 	 */
 	public static void delFolder(String folderPath) {
 		try {
@@ -218,8 +214,7 @@ public class FileUtil {
 	 * 
 	 * @param path
 	 *            文件夹完整绝对路径
-	 * @return
-	 * @return
+	 * @return 删除成功返回true
 	 */
 	public static boolean delAllFile(String path) {
 		boolean bea = false;
@@ -257,7 +252,6 @@ public class FileUtil {
 	 *            准备复制的文件源
 	 * @param newPathFile
 	 *            拷贝到新绝对路径带文件名
-	 * @return
 	 */
 	public static void copyFile(String oldPathFile, String newPathFile) {
 		try {
@@ -281,9 +275,9 @@ public class FileUtil {
 	}
 	/******
 	 * 
-	 * @param oldPathFile
-	 * @param newPathFile
-	 * @param filename
+	 * @param oldPathFile 原文件
+	 * @param newPathFile 新文件
+	 * @param filename 文件名
 	 */
 	public static void copyFile(String oldPathFile, String newPathFile,String filename) {
 		try {
@@ -313,7 +307,6 @@ public class FileUtil {
 	 *            准备拷贝的目录
 	 * @param newPath
 	 *            指定绝对路径的新目录
-	 * @return
 	 */
 	public static void copyFolder(String oldPath, String newPath) {
 		try {
@@ -353,9 +346,8 @@ public class FileUtil {
 	/**
 	 * 移动文件
 	 * 
-	 * @param oldPath
-	 * @param newPath
-	 * @return
+	 * @param oldPath 原路径
+	 * @param newPath 新路径
 	 */
 	public static void moveFile(String oldPath, String newPath) {
 		copyFile(oldPath, newPath);
@@ -365,9 +357,8 @@ public class FileUtil {
 	/**
 	 * 移动目录
 	 * 
-	 * @param oldPath
-	 * @param newPath
-	 * @return
+	 * @param oldPath 原路径
+	 * @param newPath 新路径
 	 */
 	public static void moveFolder(String oldPath, String newPath) {
 		copyFolder(oldPath, newPath);

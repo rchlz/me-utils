@@ -4,7 +4,6 @@ import java.io.ByteArrayOutputStream;
 /**
  * Base64编码解码工具（编码后的字符串不会自动换行）
  * @author guoweiwei gww0426@163.com
- *
  */
 public class Base64Util {
 
@@ -30,8 +29,8 @@ public class Base64Util {
 
 	/**
 	 * 将字节数组编码为字符串
-	 *
-	 * @param 返回编码后的字符串
+	 * @param  data 返回编码后的字符串
+	 * @return 编码后的字符串
 	 */
 	public static String encode(byte[] data) {
 		StringBuffer sb = new StringBuffer();
@@ -69,8 +68,9 @@ public class Base64Util {
 
 	/**
 	 * 将base64的字符串进行解码
-	 *
-	 * @param 返回解码后的字符数组
+	 * @param str 返回解码后的字符数组
+	 * @return 解码后的字符串
+	 * @throws Exception 异常
 	 */
 	public static byte[] decode(String str) throws Exception {
 		byte[] data = str.getBytes("GBK");
