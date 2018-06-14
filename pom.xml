@@ -1,55 +1,55 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>cn.sinapp.meutils</groupId>
-  <artifactId>me-utils</artifactId>
-  <version>1.0</version>
-  <name>me-utils</name>
-  <url>http://www.sinapp.cn</url>
-  
-  <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>7</version>
-</parent>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>cn.sinapp.meutils</groupId>
+	<artifactId>me-utils</artifactId>
+	<version>1.0</version>
+	<name>me-utils</name>
+	<url>http://www.sinapp.cn</url>
 
-<licenses>
-    <license>
-        <name>The Apache Software License, Version 2.0</name>
-        <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-        <distribution>repo</distribution>
-    </license>
-</licenses>
- 
-<scm>
-    <url>https://github.com/rchlz/me-utils</url>
-    <connection>https://github.com/rchlz/me-utils.git</connection>
-    <developerConnection>https://www.guoweiwei.com</developerConnection>
-</scm>
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
 
-<distributionManagement>
-	<snapshotRepository>
-		<!-- 这个id需要在setting.xml中设置 -->
-		<id>sonatype-nexus-snapshots</id>
-		<name>OSS Snapshots Repository</name>
-		<!-- 这里的url就是Issue中回复的snapshots 的repo地址 -->
-		<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-	</snapshotRepository>
-	<repository>
-		<id>sonatype-nexus-staging</id>
-		<name>OSS Staging Repository</name>
-		<!-- 这里的url就是Issue中回复的staging 的repo地址 -->
-		<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-	</repository>
-</distributionManagement>
- 
-<developers>
-    <developer>
-        <name>guoweiwei</name>
-        <email>gww0426@163.com</email>
-        <url>https://www.guoweiwei.com</url>
-    </developer>
-</developers>
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<scm>
+		<url>https://github.com/rchlz/me-utils</url>
+		<connection>https://github.com/rchlz/me-utils.git</connection>
+		<developerConnection>https://www.guoweiwei.com</developerConnection>
+	</scm>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<!-- 这个id需要在setting.xml中设置 -->
+			<id>sonatype-nexus-snapshots</id>
+			<name>OSS Snapshots Repository</name>
+			<!-- 这里的url就是Issue中回复的snapshots 的repo地址 -->
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>sonatype-nexus-staging</id>
+			<name>OSS Staging Repository</name>
+			<!-- 这里的url就是Issue中回复的staging 的repo地址 -->
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+
+	<developers>
+		<developer>
+			<name>guoweiwei</name>
+			<email>gww0426@163.com</email>
+			<url>https://www.guoweiwei.com</url>
+		</developer>
+	</developers>
 
 	<dependencies>
 		<dependency>
@@ -93,5 +93,5 @@
 			</plugin>
 		</plugins>
 	</build>
-  
+
 </project>
