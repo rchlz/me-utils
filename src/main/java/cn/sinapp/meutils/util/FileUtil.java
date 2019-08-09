@@ -34,6 +34,7 @@ public class FileUtil {
 		encoding = encoding.trim();
 		StringBuffer str = new StringBuffer("");
 		String st = "";
+		BufferedReader br = null;
 		try {
 			FileInputStream fs = new FileInputStream(filePathAndName);
 			InputStreamReader isr;
@@ -42,7 +43,7 @@ public class FileUtil {
 			} else {
 				isr = new InputStreamReader(fs, encoding);
 			}
-			BufferedReader br = new BufferedReader(isr);
+			br = new BufferedReader(isr);
 			try {
 				String data = "";
 				while ((data = br.readLine()) != null) {
@@ -54,6 +55,10 @@ public class FileUtil {
 			st = str.toString();
 		} catch (IOException es) {
 			st = "";
+		}finally {
+			if(br != null) {
+				br.close();
+			}
 		}
 		return st;
 	}
@@ -95,7 +100,7 @@ public class FileUtil {
 			String txt;
 			txts = folderPath;
 			StringTokenizer st = new StringTokenizer(paths, "|");
-			for (int i = 0; st.hasMoreTokens(); i++) {
+			while (st.hasMoreTokens()) {
 				txt = st.nextToken().trim();
 				if (txts.lastIndexOf("/") != -1) {
 					txts = createFolder(txts + txt);
@@ -254,16 +259,17 @@ public class FileUtil {
 	 *            拷贝到新绝对路径带文件名
 	 */
 	public static void copyFile(String oldPathFile, String newPathFile) {
+		FileOutputStream fs = null;
 		try {
-			int bytesum = 0;
+			//int bytesum = 0;
 			int byteread = 0;
 			File oldfile = new File(oldPathFile);
 			if (oldfile.exists()) { // 文件存在时
 				InputStream inStream = new FileInputStream(oldPathFile); // 读入原文件
-				FileOutputStream fs = new FileOutputStream(newPathFile);
+				fs = new FileOutputStream(newPathFile);
 				byte[] buffer = new byte[1444];
 				while ((byteread = inStream.read(buffer)) != -1) {
-					bytesum += byteread; // 字节数 文件大小
+					//bytesum += byteread; // 字节数 文件大小
 					fs.write(buffer, 0, byteread);
 				}
 				inStream.close();
@@ -271,6 +277,14 @@ public class FileUtil {
 		} catch (Exception e) {
 			e.printStackTrace();
 			message = ("复制单个文件操作出错");
+		}finally {
+			if(fs != null) {
+				try {
+					fs.close();
+				} catch (IOException e) {
+					
+				}
+			}
 		}
 	}
 	/******
@@ -280,25 +294,7 @@ public class FileUtil {
 	 * @param filename 文件名
 	 */
 	public static void copyFile(String oldPathFile, String newPathFile,String filename) {
-		try {
-			int bytesum = 0;
-			int byteread = 0;
-			File oldfile = new File(oldPathFile);
-			newPathFile+=filename;
-			if (oldfile.exists()) { // 文件存在时
-				InputStream inStream = new FileInputStream(oldPathFile); // 读入原文件
-				FileOutputStream fs = new FileOutputStream(newPathFile);
-				byte[] buffer = new byte[1444];
-				while ((byteread = inStream.read(buffer)) != -1) {
-					bytesum += byteread; // 字节数 文件大小
-					fs.write(buffer, 0, byteread);
-				}
-				inStream.close();
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			message = ("复制单个文件操作出错");
-		}
+		copyFile(oldPathFile, newPathFile + filename);
 	}
 	/**
 	 * 复制整个文件夹的内容

@@ -19,7 +19,7 @@ import com.opensymphony.util.TextUtils;
  *
  */
 public class HtmlUtil {
-    private static Long      beginDebugTime = 0L;
+    //private static Long      beginDebugTime = 0L;
 
     private static final Log logger         = LogFactory.getLog(HtmlUtil.class);
 

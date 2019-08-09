@@ -116,7 +116,7 @@ public class StringUtil {
 	 * @param symbol 连接符
 	 * @return 返回连接符链接的数组字符串
 	 */
-	public static String joinString(List array, String symbol) {
+	public static String joinString(List<Object> array, String symbol) {
 		String result = "";
 		if (array != null) {
 			for (int i = 0; i < array.size(); i++) {
@@ -465,7 +465,7 @@ public class StringUtil {
 	public static String linkedHashMapToString(LinkedHashMap<String, String> map) {
 		if (map != null && map.size() > 0) {
 			String result = "";
-			Iterator it = map.keySet().iterator();
+			Iterator<String> it = map.keySet().iterator();
 			while (it.hasNext()) {
 				String name = (String) it.next();
 				String value = (String) map.get(name);
@@ -482,10 +482,9 @@ public class StringUtil {
 	 * @param str 带转换的字符串
 	 * @return 转换后的map
 	 */
-	@SuppressWarnings("unchecked")
 	public static LinkedHashMap<String, String> toLinkedHashMap(String str) {
 		if (str != null && !str.equals("") && str.indexOf("=") > 0) {
-			LinkedHashMap result = new LinkedHashMap();
+			LinkedHashMap<String, String> result = new LinkedHashMap<String, String>();
 
 			String name = null;
 			String value = null;
@@ -689,13 +688,18 @@ public class StringUtil {
 	 * @return 对象
 	 */
 	public static Object xmlToObject(String xml) {
+		XMLDecoder decoder = null;
 		try {
 			ByteArrayInputStream in = new ByteArrayInputStream(xml
 					.getBytes("UTF8"));
-			XMLDecoder decoder = new XMLDecoder(new BufferedInputStream(in));
+			decoder = new XMLDecoder(new BufferedInputStream(in));
 			return decoder.readObject();
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			if(decoder != null) {
+				decoder.close();
+			}
 		}
 		return null;
 	}
@@ -1862,11 +1866,10 @@ public class StringUtil {
 	 * @return map
 	 * @author sky
 	 */
-	@SuppressWarnings("unchecked")
 	public static Map<String, String> parseQuery(String query, char split1,
 			char split2, String dupLink) {
 		if (!isEmpty(query) && query.indexOf(split2) > 0) {
-			Map<String, String> result = new HashMap();
+			Map<String, String> result = new HashMap<String, String>();
 
 			String name = null;
 			String value = null;
@@ -1917,8 +1920,7 @@ public class StringUtil {
 	 * @param slipStr 分隔符
 	 * @return String
 	 */
-	@SuppressWarnings("unchecked")
-	public static String listToStringSlipStr(List list, String slipStr) {
+	public static String listToStringSlipStr(List<Object> list, String slipStr) {
 		StringBuffer returnStr = new StringBuffer();
 		if (list != null && list.size() > 0) {
 			for (int i = 0; i < list.size(); i++) {
